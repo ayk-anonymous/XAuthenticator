@@ -1,0 +1,317 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #d9d9d9;
+    color: #0f1419;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dark-mode {
+    background-color: #637B92;
+}
+
+.container {
+    background-color: #FAFAFA;
+    padding: 10px 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: auto;
+    max-height: 920px;
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #0f1419;
+    transition: color 0.5s ease;
+}
+
+h1 span {
+    font-style: italic;
+    color: white;
+    -webkit-text-stroke: 3px #0f1419;
+    transition: color 0.5s ease, -webkit-text-stroke 0.5s ease;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #555;
+    transition: color 0.5s ease;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #0f1419;
+    transition: color 0.5s ease;
+}
+
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+textarea {
+    height: 80px;
+    resize: none;
+}
+
+#check_button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0f1419;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
+}
+
+#check_button:hover {
+    background-color: #34393f;
+}
+
+/* Loader animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Apply loading animation to button */
+.loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 1s linear infinite;
+    margin-left: 5px; /* Adjust as needed */
+    vertical-align: middle;
+    position: relative;
+    top: -2px; /* Adjust as needed */
+}
+
+.dark-mode .loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3498db;
+    border-top: 2px solid #f3f3f3;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin 1s linear infinite;
+    margin-left: 5px; /* Adjust as needed */
+    vertical-align: middle;
+    position: relative;
+    top: -2px; /* Adjust as needed */
+}
+
+/* Hide loader animation by default */
+#check_button.loader::after {
+    display: inline-block;
+}
+
+/* Hide text when loader is shown */
+#check_button.loader {
+    color: white;
+}
+
+
+button:hover {
+    background-color: #333;
+}
+
+#output {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    min-height: 50px;
+    text-align: left;
+    color: #333;
+    transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup_content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.help {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+}
+
+.help button {
+    background-color: #ffffff;
+    border: 1px solid #0f1419;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle button {
+    background-color: #ffffff;
+    border: 1px solid #0f1419;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease, border 0.5s ease;
+}
+
+.theme-toggle button:hover {
+    background-color: #0f1419;
+}
+
+/* Dark Mode */
+
+.dark-mode .container {
+    background-color: #15202B;
+}
+
+.dark-mode p {
+    color: #f9f9f9;
+}
+
+.dark-mode h1 {
+    color: #f9f9f9;
+}
+
+.dark-mode h1 span {
+    font-style: italic;
+    color: #0f1419;
+    -webkit-text-stroke: 2px white;
+}
+
+.dark-mode #check_button {
+    border: #f9f9f9 1px solid;
+    background-color: #f9f9f9;
+    color: #0f1419;
+    font-weight: 600;
+}
+
+.dark-mode #check_button:hover {
+    border: #34393f 1px solid;
+    background-color: #34393f;
+    color: #f9f9f9;
+}
+
+.dark-mode #output {
+    background-color: #f9f9f9;
+    border: 1px solid #555;
+    color: #0f1419;
+}
+
+.dark-mode .help button {
+    color: #ffffff;
+    background-color: #0f1419;
+    border: 1px solid #ffffff;
+}
+
+.dark-mode #fi_3106703 {
+    fill: #ffffff;
+}
+
+.dark-mode label {
+    color: #f9f9f9;
+}
+
+.dark-mode .theme-toggle button {
+    background-color: #0f1419;
+    border: 1px solid #ffffff;
+}
+
+.dark-mode .theme-toggle button:hover {
+    background-color: #ffffff;
+}
+
+.dark-mode .popup_content {
+    background-color: #2e2e2e;
+    color: #f9f9f9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px 20px;
+        border-radius: 20px;
+        max-width: 120%;
+    }
+
+    .popup_content {
+        width: 90%;
+    }
+}
